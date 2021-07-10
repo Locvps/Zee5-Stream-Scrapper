@@ -34,21 +34,38 @@ curl_close($curl);
 
 $z5 =json_decode($response, true);
 $image =$z5['image_url'];
+$cover =$z5['cover_image'];
 $title =$z5['title'];
 $des =$z5['description'];
+$release =$z5['release_date'];
+$actor =$z5['actors'];
+$gen =$z5['genre'][0]['id'];
+$gen1 =$z5['genre'][1]['id'];
+$lang =$z5['languages'];
+
 $vhls =$z5['hls'][0];
-$sub =$z5['vtt_thumbnail_url'][0];
+$vdash =$z5['video'][0];
+
+$sub =$z5['video_details']['vtt_thumbnail_url'];
+$drmkey = $z5['drm_key_id'];
 $error =$z5['error_code'];
 $vidt = str_replace('drm', 'hls', $vhls);
-$img = str_replace('270x152', '1170x658', $image); 
 
-$hls = "https://zee5vodnd.akamaized.net".$vidt.$vtoken;
+$img = str_replace('270x152', '1170x658', $image);                                     // Landscape Image
+$pro = "https://akamaividz2.zee5.com/image/upload/resources/".$id."/portrait/".$cover; // portrait Image
+
+$hls = "https://zee5vodnd.akamaized.net".$vidt.$vtoken;  // HLS Url
+$dash = "https://zee5vodnd.akamaized.net".$vdash;        // Dash URL
 
 header("Content-Type: application/json");
 $errr= array("error" => "Put Here Only ZEE5 Proper URL ,  Invalid Input " );
 $err =json_encode($errr);
-$apii = array("title" => $title, "description" => $des, "thumbnail" => $img, "video_url" => $hls, "subtitle_url" => $sub, "created_by" => "Avishkar Patil");
+
+$apii = array("title" => $title, "description" => $des,  "Release" => $release, "language" => $lang, "genre" => $gen.",".$gen1 , "thumbnail" => $img, "portrait" => $pro, "actor" => $actor, "drm_key" => $drmkey, "video_url" => $hls, "dash" => $dash, "subtitle_url" => $sub, "created_by" => "Avishkar Patil");
+
 $api =json_encode($apii, JSON_UNESCAPED_SLASHES);
+
+
 if($error ==101){
 echo $err;
 }
