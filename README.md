@@ -13,14 +13,11 @@
 ```py
   https://www.zee5.com/movies/details/watch-uri-the-surgical-strike-full-movie-online/0-0-33204
 ```
- 
-♢ After Copy Paste URL after this URL : <br><code>https://z5avi.herokuapp.com/?c=</code> 
-  <br><br>
   
 ♢ It Final URL is --> 
   
 ```py
-  https://z5avi.herokuapp.com/?c=https://www.zee5.com/movies/details/watch-uri-the-surgical-strike-full-movie-online/0-0-33204
+  https://localhost/?c=https://www.zee5.com/movies/details/watch-uri-the-surgical-strike-full-movie-online/0-0-33204
 ```
 ♢ Run Final URL in Browser You Get Streaming URL <br>
 </h4>
@@ -30,7 +27,7 @@
 
 <h2> Where To Host : </h2>
 
-<h5 align="center"> Copy The index.php code and Host on repl.it or heroku as your wish <br> or Your Hosting Otherwise Use https://z5avi.herokuapp.com/
+<h5 align="center"> Copy The index.php code and Host on repl.it or heroku as your wish <br> or Your Hosting
 <br>
   
 ---
